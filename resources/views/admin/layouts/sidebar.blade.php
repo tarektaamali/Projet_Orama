@@ -25,72 +25,84 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Plannification</a></li>
+            <li class=""><a href="index.html"><i class="fa fa-calendar"></i>Plannification</a></li>
 
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Reservation</span>
+                    <i class="fa fa-calendar-plus-o"></i> <span>Reservation</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="index.html"><i class="fa fa-circle-o"></i> Reservation en attende</a></li>
-                    <li><a href="index2.html"><i class="fa fa-circle-o"></i> Reservation valider </a></li>
+                    <li ><a href="index.html"><i class="fa fa-calendar-o"></i> Reservation en attende</a></li>
+                    <li><a href="index2.html"><i class="fa fa-calendar-plus-o"></i> Reservation valider </a></li>
                 </ul>
             </li>
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Materiel</span>
+                    <i class="fa  fa-cubes"></i> <span>Materiel</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="{{ route('materiels.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-                    <li><a href="{{ route('materiels.index') }}"><i class="fa fa-circle-o"></i> View </a></li>
+                    <li ><a href="{{ route('materiels.create') }}"><i class="fa fa-plus-square"></i> Add</a></li>
+                    <li><a href="{{ route('materiels.index') }}"><i class="fa fa-eye"></i> View </a></li>
                 </ul>
             </li>
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>service</span>
+                    <i class="fa  fa-cogs"></i> <span>service</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="index.html"><i class="fa fa-circle-o"></i> Add</a></li>
-                    <li><a href="index2.html"><i class="fa fa-circle-o"></i> View </a></li>
+                    <li ><a href="index.html"><i class="fa fa-plus-square"></i> Add</a></li>
+                    <li><a href="index2.html"><i class="fa fa-eye"></i> View </a></li>
+                </ul>
+            </li>
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-group"></i> <span>Equipe</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ><a href="index.html"><i class="fa fa-user"></i>User</a></li>
+                    <li><a href="index2.html"><i class=" fa fa-users"></i> Equipe </a></li>
                 </ul>
             </li>
 
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
+                    <i class="fa fa-book"></i>
                     <span>Rapport</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Add</a></li>
-                    <li><a href="index2.html"><i class="fa fa-circle-o"></i> View </a></li>
+                    <li class="active"><a href="index.html"><i class="fa fa-plus-square"></i> Add</a></li>
+                    <li><a href="index2.html"><i class="fa fa-eye"></i> View </a></li>
                 </ul>
             </li>
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Blog</span>
+                    <i class="fa fa-newspaper-o"></i> <span>Blog</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('articles.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-                    <li><a href="{{ route('articles.index') }}"><i class="fa fa-circle-o"></i> View </a></li>
+                    <li><a href="{{ route('articles.create') }}"><i class="fa fa-keyboard-o"></i> Create</a></li>
+                    <li><a href="{{ route('articles.index') }}"><i class="fa fa-eye"></i> View </a></li>
                 </ul>
             </li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Clients</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Feedbacks</a></li>
+            <li class=""><a href="index.html"><i class="fa fa-user"></i> Clients</a></li>
+            <li class=""><a href="index.html"><i class="fa fa-envelope"></i> Feedbacks</a></li>
 
 
 
