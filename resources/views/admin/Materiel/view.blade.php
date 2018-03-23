@@ -1,66 +1,106 @@
 @extends('admin\layouts\app')
-
+@section('headSection')
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables/dataTables.bootstrap.css') }}">
+@endsection
 @section('main-content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Text Editors
-                <small>Advanced form element</small>
+                liste de Service
+                <!--     <small>it all starts here</small>-->
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Forms</a></li>
-                <li class="active">Editors</li>
-            </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <button type="button" class="btn btn-warning">Update</button>
-                            <button type="button" class="btn btn-warning">Update</button>
+
+            <!-- Default box -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Title</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <!--<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fa fa-times"></i></button>-->
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">liste des services</h3>
                         </div>
-                        <!-- /.panel-heading -->
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Titre</th>
+                                    <th>Description</th>
+                                    <th>chef</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
 
-                        <div class="box">
-
-                            <div class="box-body">
-                                <table width="100%" class="table table-bordered table-striped" id="dataTables-example">
-                                    <thead>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($materiels as $materiel)
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Rubrique</th>
-                                        <th>nombre</th>
-                                        <th>Action</th>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$materiel->libelle}}
+                                        </td>
+                                        <td>{{$materiel->nombre}}</td>
+                                        <td>{{$materiel->chefs->name}}</td>
+                                        <td><a href="{{ route('materiels.edit',$materiel->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+
+                                        <td>
+                                            <form  id="delete-form-{{$materiel->id}}" method="post" action="{{route('materiels.destroy',$materiel->id)}}" style="display: none">
+                                                {{csrf_field()}}
+                                                {{method_field('DELETE')}}
+                                            </form>
+                                            <a href="" onclick="if(confirm ('Are you sure ,You want to delete')){
+
+                                                    event.preventDefault();document.getElementById('delete-form-{{$materiel->id}}').submit(); }
+                                                    else
+                                                    {
+
+                                                    event.preventDefault();
+                                                    }
+
+                                                    "><span class="glyphicon glyphicon-trash"></span></a>
+
+
+                                        </td>
 
                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($materiel as $mt)
-                                        <tr>
-                                            <td> {{$mt->id}}</td>
-                                            <td> {{$mt->libelle}}</td>
-                                            <td> {{$mt->nombre}}</td>
-                                            <td> <center><a href="UpdateRB/{{$rb->id}}"> <button type="button" class="btn btn-warning">Update</button></a></center> </td>
-                                            <td><center> <a href="AddRB/{{$rb->id}}"> <button type="button" class="btn btn-danger">Delete</button></a></center> </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                                <!-- /.table-responsive -->
+                                @endforeach
 
-                            </div>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Titre</th>
+                                    <th>Description</th>
+                                    <th>Chef</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                        <!-- /.box-body -->
+                    </div>                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    Footer
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.box-footer-->
             </div>
+            <!-- /.box -->
 
         </section>
         <!-- /.content -->
@@ -68,4 +108,13 @@
 
 
 
+@endsection
+@section('footerSection')
+    <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+        });
+    </script>
 @endsection

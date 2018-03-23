@@ -1,13 +1,22 @@
-@extends('layouts.app')
+@extends('user.layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+@section('main-content')
 
-                <div class="card-body">
+        <!-- Background Image -->
+        <div class="bg-img overlay" style="background-image:url('{{asset('user/img/background3.jpg')}}')"></div>
+        <!-- /Background Image -->
+
+        <!-- page wrapper -->
+        <div class="page-wrapper text-center">
+            <div class="container">
+                <div class="row">
+                    <h2>SIGN UP</h2>
+
+                  <!--  <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-link"><span>Home</span></a></li>
+                        <li class="breadcrumb-item"><a href="blog.html" class="text-link"><span>Blog</span></a></li>
+                        <li class="breadcrumb-item active">Single Post</li>
+                    </ul>-->
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -69,9 +78,20 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
+
+        <!-- /page wrapper -->
+
+
+    <!-- /Page Header Section -->
+
+                <!-- row -->
+
             </div>
+
         </div>
-    </div>
-</div>
+
+    <!-- /container -->
+
 @endsection

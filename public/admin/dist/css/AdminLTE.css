@@ -953,6 +953,9 @@ a:focus {
   margin: 0;
   top: 100%;
 }
+.red {
+  color: red;
+}
 .navbar-nav > .notifications-menu > .dropdown-menu > li,
 .navbar-nav > .messages-menu > .dropdown-menu > li,
 .navbar-nav > .tasks-menu > .dropdown-menu > li {

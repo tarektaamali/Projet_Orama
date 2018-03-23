@@ -1,13 +1,47 @@
-@extends('layouts.app')
+@extends('user.layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+@section('main-content')
 
-                <div class="card-body">
+        <!-- Background Image -->
+        <div class="bg-img overlay" style="background-image:url('{{asset('user/img/background3.jpg')}}"></div>
+        <!-- /Background Image -->
+
+        <!-- page wrapper -->
+        <div class="page-wrapper text-center">
+            <div class="container">
+                <div class="row">
+                    <h2>SIGN IN</h2>
+
+                <!--    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-link"><span>Home</span></a></li>
+                        <li class="breadcrumb-item"><a href="blog.html" class="text-link"><span>Blog</span></a></li>
+                        <li class="breadcrumb-item active">Single Post</li>
+                    </ul>-->
+
+                </div>
+            </div>
+        </div>
+        <!-- /page wrapper -->
+
+    </div>
+    <!-- /Page Header Section -->
+
+    <!-- Blog page Section -->
+    <div class="section md-section">
+
+        <!-- container -->
+        <div class="container">
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- Main -->
+                <div id="main" class="col-md-9">
+                    <div class="blog-img">
+                        <img src="{{asset("user//img/blog-post.jpg")}}" alt="">
+                    </div>
+                    <div class="reply-form">
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -61,9 +95,17 @@
                             </div>
                         </div>
                     </form>
+                    <!-- /blog reply form -->
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
-</div>
+    <!-- /row -->
+
+    </div>
+    <!-- /container -->
+
+    </div>
 @endsection

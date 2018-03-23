@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materiel extends Model
 {
-    public $table='reservations';
-    public $primaryKey='id';
-    public  function user()
+
+    public  function chefs()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo('App\Model\admin\admin','admin_id');
     }
+
 }

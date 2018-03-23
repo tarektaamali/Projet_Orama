@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Feedback;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class FeedbackController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks=Feedback::all();
+        return view ('admin.feedback.show',compact('feedbacks'));
     }
 
     /**
@@ -80,6 +86,7 @@ class FeedbackController extends Controller
      */
     public function destroy($id)
     {
-        //
+        feedback::where ('id',$id)->delete();
+        return redirect() ->back();
     }
 }

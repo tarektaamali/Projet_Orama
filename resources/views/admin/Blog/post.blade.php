@@ -30,21 +30,21 @@
                         @endif
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="{{route('articles.store')}}" method="post">
+                    <form role="form" action="{{route('articles.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="box-body">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="title">Post title</label>
+                                    <label for="title">Titre de poste </label>
                                     <input type="text" class="form-control"  name="title" placeholder="Enter title">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="subtitle">Post subtitle </label>
+                                    <label for="subtitle">Sous-titre de poste </label>
                                     <input type="text" class="form-control" name="subtitle" placeholder="Enter subtitle">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
+                                    <label for="exampleInputFile">Upload image</label>
                                     <input type="file" name="image" id="exampleInputFile">
                                 </div>
                             </div>
@@ -64,7 +64,11 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body pad">
-                                <textarea name="body" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" id="editor1"></textarea>
+                                <textarea name="body"  style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" id="editor1">
+
+
+
+                                </textarea>
                             </div>
                         </div>
 
@@ -83,4 +87,16 @@
 
 
 
+@endsection
+@section('footerSection')
+    <script src="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+    <script>
+        $(function () {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1');
+            //bootstrap WYSIHTML5 - text editor
+            $(".textarea").wysihtml5();
+        });
+    </script>
 @endsection

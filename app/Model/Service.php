@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    public $table='reservations';
-    public $primaryKey='id';
-    public  function user()
+    public  function reservations()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->hasMany('App\Model\Reservation');
     }
 }

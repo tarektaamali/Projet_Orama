@@ -9,13 +9,25 @@ use App\Model\Article;
 class ArticleController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        return view ('admin\Blog\show');
+        $articles=Article::all();
+        return view ('admin.Blog.show',compact('articles'));
+
 
     }
 
@@ -39,24 +51,32 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-
             'title' => 'required',
-
             'subtitle' => 'required',
            'body' => 'required',
+            'image'=>'required',
 
 
         ]);
         $article = new Article;
+        if($request->hasFile('image')){
+            $imageName= $request->image->store('public/blogimage');
+            $file_name = $request->file('image')->hashName();
+
+            // save new image $file_name to database
+           // $article->update(['image' => $file_name]);
+        } else{
+                return 'No';
+            }
+
+
+        $article = new Article;
+        $article->image=$file_name;
         $article->title= $request->title;
         $article->subtitle= $request->subtitle;
         $article->post= $request->body;
         $article->save();
-
-
-
-
-        redirect(route('articles.index'));
+      return    redirect(route('articles.index'));
     }
 
     /**
@@ -78,7 +98,20 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::where('id',$id)->first();
+        /*
+                $service = Service::where('id',$id)->get();
+        the result object inside table
+       [{"id":1,"titre":"lllz","description":"zjjzjz","user_id":null,"created_at":"2018-03-11 20:23:19","updated_at":"2018-03-11 20:23:19"}]
+
+
+        $service = Service::where('id',$id)->first();
+     the result is object
+        {"id":1,"titre":"lllz","description":"zjjzjz","user_id":null,"created_at":"2018-03-11 20:23:19","updated_at":"2018-03-11 20:23:19"}
+
+        */
+        return view ('admin.Blog.update',compact('article'));
+
     }
 
     /**
@@ -90,7 +123,29 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        request()->validate([
+
+            'title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
+            'image'=>'required',
+
+
+        ]);
+        if($request->hasFile('image')){
+          $imageName= $request->image->store('public/blogimage');
+
+        }
+
+        //     return $request->all()
+        $article  = Article::find($id);
+        $article->title= $request->title;
+        $article->image= $imageName;
+        $article->subtitle= $request->subtitle;
+        $article->post= $request->body;
+        $article->save();
+      return  redirect(route('articles.index'));
     }
 
     /**
@@ -101,6 +156,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        article::where ('id',$id)->delete();
+        return redirect() ->back();
     }
 }

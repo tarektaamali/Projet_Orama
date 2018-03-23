@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\admin\admin;
 use App\Model\Materiel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,11 +14,17 @@ class MaterielController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index()
     {
-        $materiel=Materiel::all();
-        $arr=Array('materiel'=>$materiel);
-        return view ('admin\Materiel\view',$arr);
+        $materiels=Materiel::with('chefs')->get();
+        //        $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','non validé')->get() ;
+
+        // $arr=Array('materiel'=>$materiel);
+        return view ('admin.Materiel.view',compact('materiels'));
     }
 
     /**
@@ -27,7 +34,8 @@ class MaterielController extends Controller
      */
     public function create()
     {
-        return view ('admin\Materiel\add');
+        $admins=admin::all();
+        return view ('admin\Materiel\add',compact('admins'));
 
     }
 
@@ -39,7 +47,17 @@ class MaterielController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'libelle' => 'required|string|max:255',
+            'nombre' => 'required|numeric',
+            //  'password' => 'required|string|min:6|confirmed',
+        ]);
+        $materiel = new Materiel;
+        $materiel->libelle= $request->libelle;
+        $materiel->nombre= $request->nombre;
+        $materiel->admin_id= $request->adminid;
+        $materiel->save();
+        return redirect(route('materiels.index'));
     }
 
     /**
@@ -84,6 +102,7 @@ class MaterielController extends Controller
      */
     public function destroy($id)
     {
-        //
+        materiel::where ('id',$id)->delete();
+        return redirect() ->back();
     }
 }

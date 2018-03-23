@@ -11,6 +11,7 @@ use App\Model\Reservation;
 use App\Model\Service;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\App;
 
 class User extends Authenticatable
 {
@@ -33,17 +34,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public  function equipe()
+
+
+
+    public  function reservations()
     {
-        return $this->belongsTo(Equipe::class,'equipe_id');
+        return $this->hasMany('App\Model\Reservation');
     }
-    public $table1='reservations';
-    public $primaryKey1='id';
-    public  function reservation()
-    {
-        return $this->hasMany(Reservation::class);
-    }
-    public $table2='articles';
+    /*public $table2='articles';
     public $primaryKey2='id';
     public  function article()
     {
@@ -72,6 +70,6 @@ class User extends Authenticatable
     public  function feedback()
     {
         return $this->hasMany(Feedback::class);
-    }
+    }*/
 
 }

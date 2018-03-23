@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class serviceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class serviceController extends Controller
      */
     public function index()
     {
-        //
+        $services=Service::all();
+        return view ('admin.Service.view',compact('services'));
     }
 
     /**
@@ -36,7 +42,23 @@ class serviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        request()->validate([
+
+            'titre' => 'required',
+            'description' => 'required',
+
+
+        ]);
+        $service = new Service;
+        $service->titre= $request->titre;
+        $service->description= $request->description;
+        $service->save();
+
+        return redirect()->route('service.index');
+
+
+
     }
 
     /**
@@ -58,7 +80,20 @@ class serviceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::where('id',$id)->first();
+        /*
+                $service = Service::where('id',$id)->get();
+        the result object inside table
+       [{"id":1,"titre":"lllz","description":"zjjzjz","user_id":null,"created_at":"2018-03-11 20:23:19","updated_at":"2018-03-11 20:23:19"}]
+
+
+        $service = Service::where('id',$id)->first();
+     the result is object
+        {"id":1,"titre":"lllz","description":"zjjzjz","user_id":null,"created_at":"2018-03-11 20:23:19","updated_at":"2018-03-11 20:23:19"}
+
+        */
+        return view ('admin.Service.update',compact('service'));
+
     }
 
     /**
@@ -70,7 +105,25 @@ class serviceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+
+            'titre' => 'required',
+            'description' => 'required',
+
+
+        ]);
+
+   //     return $request->all();
+        $service = Service::find($id);
+        $service->titre= $request->titre;
+        $service->description= $request->description;
+        $service->save();
+
+
+
+
+        return redirect()->route('service.index');
+
     }
 
     /**
@@ -81,6 +134,7 @@ class serviceController extends Controller
      */
     public function destroy($id)
     {
-        //
+    service::where ('id',$id)->delete();
+    return redirect() ->back();
     }
 }

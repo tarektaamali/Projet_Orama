@@ -12,7 +12,7 @@ class Rapport extends Model
     {
         return $this->hasMany(Rapport::class);
     }
-    public $table1='reservations';
+    public $table1='users';
     public $primaryKey1='id';
     public  function user()
     {
