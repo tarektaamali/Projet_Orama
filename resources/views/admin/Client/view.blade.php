@@ -7,7 +7,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Users
+                Gestion de Client
                 <!--     <small>it all starts here</small>-->
             </h1>
         </section>
@@ -49,8 +49,7 @@
                                 @foreach($clients as $client)
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td>{{$client->name}}
-                                        </td>
+                                        <td>{{$client->name}} {{$client->lastname}} </td>
                                         <td>{{$client->email}}</td>
                                         <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
 

@@ -7,7 +7,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-               Gestion Materiels
+                Gestion d'employee
                 <!--     <small>it all starts here</small>-->
             </h1>
         </section>
@@ -30,7 +30,7 @@
                 <div class="box-body">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">liste des materiels disponible</h3>
+                            <h3 class="box-title">liste des services</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -38,32 +38,33 @@
                                 <thead>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Libelle</th>
-                                    <th>nombre </th>
-                                    <th>Chef d'equipe</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>chef</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($materiels as $materiel)
+                                @foreach($employes as $employe)
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td>{{$materiel->libelle}}
-                                        </td>
-                                        <td>{{$materiel->nombre}}</td>
-                                        <td>{{$materiel->chefs->name}}</td>
-                                        <td><a href="{{ route('materiels.edit',$materiel->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                        <td>{{$employe->firstname}} {{$employe->lastname}}</td>
+                                        <td>{{$employe->email}}</td>
+                                        <td>{{$employe->phone}}</td>
+                                        <td>{{$employe->chefs->name}}</td>
+                                        <td><a href="{{ route('employes.edit',$employe->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                         <td>
-                                            <form  id="delete-form-{{$materiel->id}}" method="post" action="{{route('materiels.destroy',$materiel->id)}}" style="display: none">
+                                            <form  id="delete-form-{{$employe->id}}" method="post" action="{{route('employes.destroy',$employe->id)}}" style="display: none">
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
                                             </form>
                                             <a href="" onclick="if(confirm ('Are you sure ,You want to delete')){
 
-                                                    event.preventDefault();document.getElementById('delete-form-{{$materiel->id}}').submit(); }
+                                                    event.preventDefault();document.getElementById('delete-form-{{$employe->id}}').submit(); }
                                                     else
                                                     {
 
@@ -82,12 +83,12 @@
                                 <tfoot>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Libelle</th>
-                                    <th>nombre </th>
-                                    <th>Chef d'equipe</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>chef</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
-
                                 </tr>
                                 </tfoot>
                             </table>
@@ -96,6 +97,7 @@
                     </div>                </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
+                    Footer
                 </div>
                 <!-- /.box-footer-->
             </div>

@@ -79,7 +79,10 @@ class MaterielController extends Controller
      */
     public function edit($id)
     {
-        //
+        $admins=admin::all();
+        $materiel = Materiel::with('chefs')->where('id',$id)->first();
+        return view ('admin.Materiel.update',compact('materiel','admins'));
+
     }
 
     /**
@@ -91,7 +94,17 @@ class MaterielController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'libelle' => 'required|string|max:255',
+            'nombre' => 'required|numeric',
+            //  'password' => 'required|string|min:6|confirmed',
+        ]);
+        $materiel = Materiel::find($id);
+        $materiel->libelle= $request->libelle;
+        $materiel->nombre= $request->nombre;
+        $materiel->admin_id= $request->adminid;
+        $materiel->save();
+        return redirect(route('materiels.index'));
     }
 
     /**

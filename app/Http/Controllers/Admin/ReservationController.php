@@ -23,7 +23,7 @@ class ReservationController extends Controller
     {
         //$reservations=Reservation::with('services')->get()->toArray();
 //->where('etat','non validé')->
-        $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','non validé')->get() ;
+        $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','en attente')->get() ;
   //return$reservations;
       //  $users1 = DB::table('reservations')->where('etat','completed')->count();
        // return$reservations;
@@ -106,11 +106,17 @@ class ReservationController extends Controller
             'description' => 'required',
 
         ]);
+               if($request->equipe == Null){
+                  $etat="en attente";
+               } else {
+                   $etat="en Cours";
+               }
+              // return $request;
 
-        //     return $request->all();
-        $reservation = Reservation::find($id);
+         $reservation = Reservation::find($id);
         $reservation->title= $request->title;
         $reservation->description= $request->description;
+        $reservation->etat=$etat;
         $reservation->admin_id= $request->equipe;
         $reservation->save();
 

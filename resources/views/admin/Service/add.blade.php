@@ -19,12 +19,8 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">AJouter un service</h3>
                         </div>
-                        @if(count($errors)> 0)
-                            @foreach($errors -> all() as $error)
-                                <p class="alert alert-danger">{{$error}}</p>
+                    @include('admin.includes.messages')
 
-                        @endforeach
-                    @endif
 
                     <!-- /.box-header -->
                         <!-- form start -->

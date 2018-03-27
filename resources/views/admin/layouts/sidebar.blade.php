@@ -12,7 +12,7 @@
             </div>
         </div>
         <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
+      <!--  <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
@@ -37,6 +37,8 @@
                 <ul class="treeview-menu">
                     <li ><a href="{{ route('reservation.index') }}"><i class="fa fa-calendar-o"></i> Reservation en attente</a></li>
                     <li><a href="{{ route('reservation.index1') }}"><i class="fa fa-calendar-plus-o"></i> Reservation En cours  </a></li>
+                    <li><a href="{{ route('reservation.index1') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
+
                 </ul>
             </li>
             <li class="active treeview">
@@ -71,8 +73,11 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="{{route('users.create')}}"><i class="fa fa-plus"></i>New User</a></li>
+                    <li ><a href="{{route('users.create')}}"><i class="fa fa-plus"></i>New Mobile User</a></li>
+                    <li ><a href="{{route('employes.create')}}"><i class="fa fa-plus"></i>New Employee</a></li>
                     <li><a href="{{route('users.index')}}"><i class=" fa  fa-list"></i> List user </a></li>
+                    <li><a href="{{route('employes.index')}}"><i class=" fa  fa-list"></i> List Employes</a></li>
+
                 </ul>
             </li>
 

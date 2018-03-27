@@ -26,6 +26,7 @@ Route::group(['namespace'=>'User'],function () {
     Route::get('/reserver','ReservationController@create')->name('reserver.create');
     Route::post('/reserver','ReservationController@store')->name('reserver.store');
 
+
 });
 Auth::routes();
 
@@ -47,10 +48,12 @@ Route::post('admin-logout', 'Admin\Auth\LoginController@logout')->name('admin.lo
     Route::resource('admin/service', 'ServiceController');
     Route::resource('admin/users', 'UserController');
     Route::resource('admin/clients', 'ClientController');
+    Route::resource('admin/employes', 'EmployeController');
     Route::resource('admin/feedback', 'FeedbackController');
     Route::resource('admin/reservation', 'ReservationController');
     Route::get('admin/reservation1', 'ReservationController@index1')->name('reservation.index1');
+    Route::get('admin/home', 'HomeController@index')->name('admin.home');
+    Route::get('admin/changePassword','HomeController@showChangePasswordForm');
+    Route::post('admin/changePassword','HomeController@changePassword')->name('changePassword');
 
-
-        Route::get('admin/home', 'HomeController@index')->name('admin.home');;
-});
+    });

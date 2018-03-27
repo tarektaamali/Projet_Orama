@@ -19,8 +19,8 @@ class CreateArticlesTable extends Migration
             $table->string('subtitle');
             $table->text('post');
             $table->string('image');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->integer('user_id')->unsigned()->nullable();
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

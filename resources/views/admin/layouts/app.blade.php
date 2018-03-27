@@ -5,7 +5,7 @@
     @include('admin.layouts.head')
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue fixed sidebar-mini">
 <div class="wrapper">
 @include('admin/layouts/header')
 @section("main-content")

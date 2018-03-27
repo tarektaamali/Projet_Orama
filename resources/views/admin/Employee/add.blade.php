@@ -7,7 +7,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Gestion de service
+                Gestion de employee
             </h1>
         </section>
         <section class="content">
@@ -19,18 +19,23 @@
                             <h3 class="box-title">Add Admin</h3>
                         </div>
                     @include('admin.includes.messages')
-                        <!-- /.box-header -->
+
+                    <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route('users.store') }}" method="post">
+                        <form role="form" action="{{ route('employes.store') }}" method="post">
                             {{ csrf_field() }}
                             <div class="box-body">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">
-                                        <label for="name">User Name
+                                        <label for="name">First Name
                                         </label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="User Name" value="{{ old('name') }}" >
+                                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="User Name" value="{{ old('firstname') }}" >
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="name">Last Name
+                                        </label>
+                                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="User Name" value="{{ old('lastname') }}" >
+                                    </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="text" class="form-control" id="email" name="email" placeholder="email" value="{{ old('email') }}" >
@@ -42,22 +47,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="password" value="{{ old('password') }}" >
-                                    </div>
+                                        <label>Chef d'equipe</label>
+                                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="equipe">
+                                            @foreach ($admins as $admin)
 
-                                    <div class="form-group">
-                                        <label for="password_confirmation">Confirm Passowrd</label>
-                                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="confirm passowrd" >
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="confirm_passowrd">Status</label>
-                                        <div class="checkbox">
-                                            <label ><input type="checkbox" name="status" @if (old('status') == 1)
-                                                checked
-                                                           @endif value="1">Status</label>
-                                        </div>
+                                                <option value="{{$admin->id}}"> {{ $admin->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                   <!--  <div class="form-group">
@@ -71,7 +67,7 @@
 
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                            <a href='{{ route('users.index') }}' class="btn btn-warning">Back</a>
+                                            <a href='{{ route('employes.index') }}' class="btn btn-warning">Back</a>
                                         </div>
                                 </div>
 

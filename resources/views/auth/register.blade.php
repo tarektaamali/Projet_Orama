@@ -1,6 +1,7 @@
 @extends('user.layouts.app')
 
 @section('main-content')
+    <div id="page-header" class="banner-area sm-section">
 
         <!-- Background Image -->
         <div class="bg-img overlay" style="background-image:url('{{asset('user/img/background3.jpg')}}')"></div>
@@ -10,13 +11,16 @@
         <div class="page-wrapper text-center">
             <div class="container">
                 <div class="row">
-                    <h2>SIGN UP</h2>
+                    <h2>Blog Single Post</h2>
+                    @if(count($errors)> 0)
+                        @foreach($errors -> all() as $error)
+                            <p class="alert alert-danger">{{$error}}</p>
 
-                  <!--  <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-link"><span>Home</span></a></li>
-                        <li class="breadcrumb-item"><a href="blog.html" class="text-link"><span>Blog</span></a></li>
-                        <li class="breadcrumb-item active">Single Post</li>
-                    </ul>-->
+                        @endforeach
+                    @endif
+                        <h3 class="title">Registre</h3>
+
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -29,6 +33,20 @@
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('lastName') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="{{ old('lastname') }}" required autofocus>
+
+                                @if ($errors->has('lastname'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('lastname') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -79,19 +97,16 @@
                         </div>
                     </form>
 
-                </div>
 
+
+                </div>
+            </div>
+        </div>
         <!-- /page wrapper -->
 
 
     <!-- /Page Header Section -->
 
-                <!-- row -->
-
-            </div>
-
-        </div>
-
-    <!-- /container -->
+    <!-- Blog page Section -->
 
 @endsection

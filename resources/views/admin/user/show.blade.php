@@ -6,10 +6,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Users
-           <!--     <small>it all starts here</small>-->
-            </h1>
+            <h1>Users</h1>
         </section>
 
         <!-- Main content -->
@@ -40,6 +37,7 @@
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Description</th>
+                                    <th>status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
@@ -52,6 +50,7 @@
                                     <td>{{$user->name}}
                                     </td>
                                     <td>{{$user->email}}</td>
+                                    <td>{{$user->status}}</td>
                                     <td><a href="{{ route('users.edit',$user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                     <td>
@@ -82,6 +81,7 @@
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Description</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
