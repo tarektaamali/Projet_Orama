@@ -25,7 +25,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class=""><a href="index.html"><i class="fa fa-calendar"></i>Plannification</a></li>
+            <li class=""><a href="{{ route('reservation.planning') }}"><i class="fa fa-calendar"></i>Plannification</a></li>
 
             <li class="active treeview">
                 <a href="#">
@@ -37,7 +37,9 @@
                 <ul class="treeview-menu">
                     <li ><a href="{{ route('reservation.index') }}"><i class="fa fa-calendar-o"></i> Reservation en attente</a></li>
                     <li><a href="{{ route('reservation.index1') }}"><i class="fa fa-calendar-plus-o"></i> Reservation En cours  </a></li>
-                    <li><a href="{{ route('reservation.index1') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
+                    <li><a href="{{ route('reservation.index1') }}"><i class="fa fa-calendar-check-o"></i> Reservation Validée  </a></li>
+                    <li><a href="{{ route('reservation.index1') }}"><i class="fa  fa-hourglass-half"></i> Projet En cours  </a></li>
+                    <li><a href="{{ route('reservation.planning') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
 
                 </ul>
             </li>

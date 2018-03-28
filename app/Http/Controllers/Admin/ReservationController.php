@@ -7,6 +7,8 @@ use App\Model\Reservation;
 use App\Model\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use phpDocumentor\Reflection\Types\Null_;
 
 class ReservationController extends Controller
 {
@@ -45,6 +47,63 @@ class ReservationController extends Controller
         return view ('admin.Reservation.view',compact('reservations'));
     }
 
+    /**
+     *
+     *
+     *
+     * @return  \Illuminate\Http\Response
+     *
+     *
+     */
+    public function planning(){
+        /*
+         *      true,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date.' +1 day'),
+                    null,
+                    // Add color and link on event
+                    [
+                        'color' => '#f05050',
+                        'url' => 'pass here url and any route',
+                    ]
+          if($data->count()) {
+            foreach ($data as $key => $value) {
+                if($value->start_date!=Null){
+
+
+
+
+            }}
+        }
+
+         */
+        $events = [];
+        $data = Reservation::all();
+
+        $events[] = \Calendar::event(
+            'Event One', //event title
+            false, //full day event?
+            '2018-03-28T0800', //start time (you can also use Carbon instead of DateTime)
+            '2018-03-29T0800', //end time (you can also use Carbon instead of DateTime)
+            0 //optionally, you can specify an event ID
+        );
+        $events[] = \Calendar::event(
+            'Event One', //event title
+            false, //full day event?
+            '2018-03-28T0800', //start time (you can also use Carbon instead of DateTime)
+            '2018-03-29T0800', //end time (you can also use Carbon instead of DateTime)
+            0 ,//optionally, you can specify an event ID,
+            [
+                'color' => '#f05050',
+                'url' => 'pass here url and any route',
+            ]
+        );
+
+
+        $calendar =Calendar::addEvents($events);
+       // return $calendar;
+        return view('admin.Plannification.Plannification', compact('calendar'));
+    }
 
     /**
      * Show the form for creating a new resource.
