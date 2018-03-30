@@ -93,7 +93,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li class="active"><a href="index.html"><i class="fa fa-plus-square"></i> Add</a></li>
-                    <li><a href="#"><i class="fa fa-eye"></i> View </a></li>
+                    <li><a href="{{ route('rapport.index') }}"><i class="fa fa-eye"></i> View </a></li>
                 </ul>
             </li>
             <li class="active treeview">

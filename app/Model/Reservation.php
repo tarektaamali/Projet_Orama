@@ -20,4 +20,8 @@ class Reservation extends Model
     {
         return $this->belongsTo('App\Model\admin\admin','admin_id');
     }
+    public  function rapports()
+    {
+        return $this->belongsTo('App\Model\Rapport','rapport_id');
+    }
 }

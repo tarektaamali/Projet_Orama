@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-11">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Plannification</div>
+                        <div class="panel-heading"><b>Plannification</b></div>
 
                         <div class="panel-body">
                             {!! $calendar->calendar() !!}

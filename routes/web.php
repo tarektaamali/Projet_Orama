@@ -51,10 +51,10 @@ Route::post('admin-logout', 'Admin\Auth\LoginController@logout')->name('admin.lo
     Route::resource('admin/employes', 'EmployeController');
     Route::resource('admin/feedback', 'FeedbackController');
     Route::resource('admin/reservation', 'ReservationController');
+    Route::resource('admin/rapport', 'RapportController');
     Route::get('admin/reservation1', 'ReservationController@index1')->name('reservation.index1');
-        Route::get('admin/planning', 'ReservationController@planning')->name('reservation.planning');
-
-        Route::get('admin/home', 'HomeController@index')->name('admin.home');
+    Route::get('admin/planning', 'ReservationController@planning')->name('reservation.planning');
+    Route::get('admin/home', 'HomeController@index')->name('admin.home');
     Route::get('admin/changePassword','HomeController@showChangePasswordForm');
     Route::post('admin/changePassword','HomeController@changePassword')->name('changePassword');
 

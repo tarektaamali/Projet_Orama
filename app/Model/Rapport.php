@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rapport extends Model
 {
-    public $table='rapports';
-    public $primaryKey='id';
-    public  function image()
+
+    public  function photo()
     {
-        return $this->hasMany(Rapport::class);
+        return $this->hasMany(Photo::class);
     }
-    public $table1='users';
-    public $primaryKey1='id';
-    public  function user()
+
+    public  function chefs()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo('App\Model\admin\admin','admin_id');
+    }
+    public  function reservation()
+    {
+        return $this->hasMany(Reservation::class);
     }
 }

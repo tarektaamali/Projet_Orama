@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Rapport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +19,11 @@ class RapportController extends Controller
      */
     public function index()
     {
-        //
+        $rapports =Rapport::with('chefs')->get() ;
+        //return$reservations;
+        //  $users1 = DB::table('reservations')->where('etat','completed')->count();
+        // return$reservations;
+        return view ('admin.Rapport.view',compact('rapports'));
     }
 
     /**
@@ -84,6 +89,7 @@ class RapportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        rapport::where ('id',$id)->delete();
+        return redirect() ->back();
     }
 }

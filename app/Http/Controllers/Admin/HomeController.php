@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
+use App\Model\Rapport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -24,8 +25,10 @@ class HomeController extends Controller
         $number= User::all()->count();
         $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','en attente')->count();
          $feedback=Feedback::all()->count();
+        $rapports=Rapport::all()->count();
 
-        return view ('admin.home',compact('number','reservations','feedback'));
+
+        return view ('admin.home',compact('number','reservations','feedback','rapports'));
     }
     public function showChangePasswordForm(){
         return view('admin.auth.changepassword');
