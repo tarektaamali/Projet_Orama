@@ -40,6 +40,8 @@
                                     <th>N°</th>
                                     <th>Name</th>
                                     <th>email</th>
+                                    <th>Tel</th>
+
                                     <th>Edit</th>
                                     <th>Delete</th>
 
@@ -51,6 +53,8 @@
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$client->name}} {{$client->lastname}} </td>
                                         <td>{{$client->email}}</td>
+                                        <td>{{$client->phone}}</td>
+
                                         <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                         <td>
@@ -66,6 +70,7 @@
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Description</th>
+                                    <th>Tel</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 

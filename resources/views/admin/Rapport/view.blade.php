@@ -41,7 +41,7 @@
                                     <th>Titre</th>
                                     <th>Note</th>
                                     <th>Etat</th>
-                                    <th>Chef d'equipe</th>
+                                    <th>Projet</th>
                                     <th>Valider</th>
                                     <th>delete</th>
 
@@ -55,9 +55,9 @@
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$rapport->title}}</td>
                                         <td>{{$rapport->note}}</td>
-                                        <td></td>
-                                        @if(count($rapport->chefs)>0)
-                                            <td>{{$rapport->chefs->name}}</td>
+                                        <td>{{$rapport->projets->etat}}</td>
+                                        @if(count($rapport->projets)>0)
+                                            <td>{{$rapport->projets->titre}}</td>
                                         @else
                                             <td>Nothing</td>
                                         @endif
@@ -94,11 +94,10 @@
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Note</th>
+                                    <th>Projet</th>
                                     <th>Etat</th>
-                                    <th>Chef d'equipe</th>
                                     <th>Valider</th>
                                     <th>delete</th>
-
 
 
                                 </tr>

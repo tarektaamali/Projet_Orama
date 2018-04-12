@@ -40,6 +40,7 @@
                                     <th>Titre</th>
                                     <th>sub-titre</th>
                                     <th>post</th>
+                                    <th>image</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
@@ -51,7 +52,10 @@
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$article->title}} </td>
                                         <td>{{$article->subtitle}} </td>
+
                                         <td> {!!  htmlspecialchars_decode($article->post)!!}</td>
+                                        <td><center><img src="/storage/blogimage/{{$article->image}}" alt="" width="100" height="100"></center></td>
+
                                         <td><a href="{{ route('articles.edit',$article->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                         <td>
@@ -71,6 +75,8 @@
                                                     "><span class="glyphicon glyphicon-trash"></span></a>
 
 
+
+
                                         </td>
 
                                     </tr>
@@ -81,8 +87,9 @@
                                 <tr>
                                     <th>N°</th>
                                     <th>Titre</th>
-                                    <th>Description</th>
-                                    <th>Description</th>
+                                    <th>sub-titre</th>
+                                    <th>post</th>
+                                    <th>image</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 

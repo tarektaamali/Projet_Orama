@@ -83,15 +83,15 @@ class ReservationController extends Controller
         $events[] = \Calendar::event(
             'Event One', //event title
             false, //full day event?
-            '2018-03-28T0800', //start time (you can also use Carbon instead of DateTime)
-            '2018-03-29T0800', //end time (you can also use Carbon instead of DateTime)
+            '2018-04-04T0800', //start time (you can also use Carbon instead of DateTime)
+            '2018-04-04T0800', //end time (you can also use Carbon instead of DateTime)
             0 //optionally, you can specify an event ID
         );
         $events[] = \Calendar::event(
             'Event One', //event title
             false, //full day event?
-            '2018-03-28T0800', //start time (you can also use Carbon instead of DateTime)
-            '2018-03-29T0800', //end time (you can also use Carbon instead of DateTime)
+            '2018-04-04T0800', //start time (you can also use Carbon instead of DateTime)
+            '2018-04-04T0800', //end time (you can also use Carbon instead of DateTime)
             0 ,//optionally, you can specify an event ID,
             [
                 'color' => '#f05050',

@@ -53,7 +53,7 @@
                                         <td>{{$materiel->libelle}}
                                         </td>
                                         <td>{{$materiel->nombre}}</td>
-                                        <td>{{$materiel->chefs->name}}</td>
+                                        <td>{{$materiel->nombre}}</td>
                                         <td><a href="{{ route('materiels.edit',$materiel->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                         <td>

@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Materiel extends Model
 {
 
-    public  function chefs()
+
+    public function projets()
     {
-        return $this->belongsTo('App\Model\admin\admin','admin_id');
+        return $this->belongsToMany('App\Model\Projet','projet_materiels');
     }
 
 }

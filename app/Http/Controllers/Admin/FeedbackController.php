@@ -19,7 +19,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        $feedbacks=Feedback::all();
+        $feedbacks=Feedback::with('users')->get();
         return view ('admin.feedback.show',compact('feedbacks'));
     }
 

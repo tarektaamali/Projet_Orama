@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Http\Controllers\Admin;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(App\Model\Reservation::class,100)->create();
+        factory(\App\Model\Article::class,10)->create();
     }
 }

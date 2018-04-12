@@ -8,6 +8,9 @@ use App\Model\Article;
 
 class ArticleController extends Controller
 {
+
+
+
     /**
      * Create a new controller instance.
      *

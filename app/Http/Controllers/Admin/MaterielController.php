@@ -20,7 +20,7 @@ class MaterielController extends Controller
     }
     public function index()
     {
-        $materiels=Materiel::with('chefs')->get();
+        $materiels=Materiel::all();
         //        $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','non validé')->get() ;
 
         // $arr=Array('materiel'=>$materiel);
@@ -55,7 +55,6 @@ class MaterielController extends Controller
         $materiel = new Materiel;
         $materiel->libelle= $request->libelle;
         $materiel->nombre= $request->nombre;
-        $materiel->admin_id= $request->adminid;
         $materiel->save();
         return redirect(route('materiels.index'));
     }
@@ -80,8 +79,8 @@ class MaterielController extends Controller
     public function edit($id)
     {
         $admins=admin::all();
-        $materiel = Materiel::with('chefs')->where('id',$id)->first();
-        return view ('admin.Materiel.update',compact('materiel','admins'));
+        //$materiel = Materiel::with('chefs')->where('id',$id)->first();
+      //  return view ('admin.Materiel.update',compact('materiel','admins'));
 
     }
 

@@ -20,4 +20,8 @@ class Rapport extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+    public  function projets()
+    {
+        return $this->belongsTo('App\model\Projet','projet_id');
+    }
 }

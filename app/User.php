@@ -41,6 +41,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Reservation');
     }
+    public  function projets()
+    {
+        return $this->hasMany('App\Model\Projet');
+    }
+    public  function feedbacks()
+    {
+        return $this->hasMany('App\Model\Feedback');
+    }
     /*public $table2='articles';
     public $primaryKey2='id';
     public  function article()

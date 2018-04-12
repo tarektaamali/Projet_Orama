@@ -10,4 +10,8 @@ class Service extends Model
     {
         return $this->hasMany('App\Model\Reservation');
     }
+    public  function projets()
+    {
+        return $this->hasMany('App\Model\Projet');
+    }
 }

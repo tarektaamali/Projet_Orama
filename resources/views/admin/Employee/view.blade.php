@@ -41,7 +41,9 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Projet</th>
                                     <th>chef</th>
+
                                     <th>Edit</th>
                                     <th>Delete</th>
 
@@ -54,7 +56,13 @@
                                         <td>{{$employe->firstname}} {{$employe->lastname}}</td>
                                         <td>{{$employe->email}}</td>
                                         <td>{{$employe->phone}}</td>
-                                        <td>{{$employe->chefs->name}}</td>
+
+                                        @if(count($employe->projets)>0)
+                                        <td>{{$employe->projets->titre}}</td>
+                                        @else
+                                            <td>Nothing</td>
+                                        @endif
+                                        <td>{{$employe->phone}}</td>
                                         <td><a href="{{ route('employes.edit',$employe->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                         <td>
@@ -86,6 +94,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>chef</th>
                                     <th>chef</th>
                                     <th>Edit</th>
                                     <th>Delete</th>

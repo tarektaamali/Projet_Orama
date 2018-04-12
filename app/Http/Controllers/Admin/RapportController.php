@@ -19,7 +19,7 @@ class RapportController extends Controller
      */
     public function index()
     {
-        $rapports =Rapport::with('chefs')->get() ;
+        $rapports =Rapport::with('projets')->get() ;
         //return$reservations;
         //  $users1 = DB::table('reservations')->where('etat','completed')->count();
         // return$reservations;

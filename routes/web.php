@@ -43,17 +43,20 @@ Route::post('admin-logout', 'Admin\Auth\LoginController@logout')->name('admin.lo
 
 
     Route::group(['namespace'=>'Admin'],function () {
-    Route::resource('admin/articles', 'ArticleController');
+        Route::resource('admin/articles', 'ArticleController');
     Route::resource('admin/materiels', 'MaterielController');
     Route::resource('admin/service', 'ServiceController');
     Route::resource('admin/users', 'UserController');
     Route::resource('admin/clients', 'ClientController');
+    Route::resource('admin/projet', 'ProjetController');
     Route::resource('admin/employes', 'EmployeController');
     Route::resource('admin/feedback', 'FeedbackController');
     Route::resource('admin/reservation', 'ReservationController');
     Route::resource('admin/rapport', 'RapportController');
-    Route::get('admin/reservation1', 'ReservationController@index1')->name('reservation.index1');
-    Route::get('admin/planning', 'ReservationController@planning')->name('reservation.planning');
+    Route::get('admin/projet1', 'ProjetController@index1')->name('projet.index1');
+    Route::get('admin/projet2', 'ProjetController@index2')->name('projet.index2');
+    Route::get('admin/projet3', 'ProjetController@index3')->name('projet.index3');
+    Route::get('admin/planning', 'ProjetController@planning')->name('projet.planning');
     Route::get('admin/home', 'HomeController@index')->name('admin.home');
     Route::get('admin/changePassword','HomeController@showChangePasswordForm');
     Route::post('admin/changePassword','HomeController@changePassword')->name('changePassword');

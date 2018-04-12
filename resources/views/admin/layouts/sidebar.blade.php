@@ -25,21 +25,21 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class=""><a href="{{ route('reservation.planning') }}"><i class="fa fa-calendar"></i>Plannification</a></li>
+            <li class=""><a href="{{ route('projet.planning') }}"><i class="fa fa-calendar"></i>Plannification</a></li>
 
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-calendar-plus-o"></i> <span>Reservation</span>
+                    <i class="fa fa-calendar-plus-o"></i> <span>Projet</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="{{ route('reservation.index') }}"><i class="fa fa-calendar-o"></i> Reservation en attente</a></li>
-                    <li><a href="{{ route('reservation.index1') }}"><i class="fa fa-calendar-plus-o"></i> Reservation En cours  </a></li>
-                    <li><a href="{{ route('reservation.index1') }}"><i class="fa fa-calendar-check-o"></i> Reservation Validée  </a></li>
-                    <li><a href="{{ route('reservation.index1') }}"><i class="fa  fa-hourglass-half"></i> Projet En cours  </a></li>
-                    <li><a href="{{ route('reservation.planning') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
+                    <li ><a href="{{ route('projet.index') }}"><i class="fa fa-calendar-o"></i> Reservation en attente</a></li>
+                    <li><a href="{{ route('projet.index1') }}"><i class="fa fa-calendar-plus-o"></i> Reservation En cours  </a></li>
+                    <li><a href="{{ route('projet.index1') }}"><i class="fa fa-calendar-check-o"></i> Reservation Validée  </a></li>
+                    <li><a href="{{ route('projet.index2') }}"><i class="fa  fa-hourglass-half"></i> Projet En cours  </a></li>
+                    <li><a href="{{ route('projet.index3') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
 
                 </ul>
             </li>
@@ -53,6 +53,8 @@
                 <ul class="treeview-menu">
                     <li ><a href="{{ route('materiels.create') }}"><i class="fa fa-plus-square"></i> Add</a></li>
                     <li><a href="{{ route('materiels.index') }}"><i class="fa fa-eye"></i> View </a></li>
+                    <li><a href="{{ route('materiels.index') }}"><i class="fa  fa-file-text-o"></i>Demande materiel</a></li>
+
                 </ul>
             </li>
             <li class="active treeview">

@@ -8,7 +8,7 @@
         <section class="content-header">
             <h1>
                 Gestion de projet
-           <!--     <small>it all starts here</small>-->
+                <!--     <small>it all starts here</small>-->
             </h1>
         </section>
 
@@ -43,6 +43,9 @@
                                     <th>Etat</th>
                                     <th>service</th>
                                     <th>Client</th>
+                                    <th>addresse</th>
+                                    <th>date debut</th>
+                                    <th>date fin</th>
                                     <th>Chef d'equipe</th>
                                     <th>Valider</th>
                                     <th>delete</th>
@@ -52,44 +55,48 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($projetss as $projet)
-                                <tr>
-                                    <td>{{$loop->index + 1}}</td>
-                                    <td>{{$projet->titre}}</td>
-                                    <td>{{$projet->description}}</td>
-                                    <td>{{$projet->etat}}</td>
-                                    <td>{{$projet->services->titre}}</td>
-                                 <td>{{$projet->users->name}}</td>
+                                @foreach($projets as $projet)
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$projet->titre}}</td>
+                                        <td>{{$projet->description}}</td>
+                                        <td>{{$projet->etat}}</td>
+                                        <td>{{$projet->services->titre}}</td>
+                                        <td>{{$projet->users->name}}</td>
+                                        <td>{{$projet->adresse}}</td>
+                                        <td>{{$projet->start_date}}</td>
+                                        <td>{{$projet->end_date}}</td>
+
                                     @if(count($projet->chefs)>0)
-                                        <td>{{$projet->chefs->name}}</td>
-                                    @else
-                                        <td>Nothing</td>
-                                    @endif
+                                            <td>{{$projet->chefs->name}}</td>
+                                        @else
+                                            <td>Nothing</td>
+                                        @endif
 
-                                    <td><a href="{{ route('projet.edit',$projet->id) }}"><span class="glyphicon glyphicon-cog"></span></a></td>
-                                       <td>
-                                    <form  id="delete-form-{{$projet->id}}" method="post" action="{{route('projet.destroy',$projet->id)}}" style="display: none">
-                                        {{csrf_field()}}
-                                        {{method_field('DELETE')}}
-                                    </form>
-                                    <a href="" onclick="if(confirm ('Are you sure ,You want to delete')){
+                                        <td><a href="{{ route('projet.edit',$projet->id) }}"><span class="glyphicon glyphicon-cog"></span></a></td>
+                                        <td>
+                                            <form  id="delete-form-{{$projet->id}}" method="post" action="{{route('projet.destroy',$projet->id)}}" style="display: none">
+                                                {{csrf_field()}}
+                                                {{method_field('DELETE')}}
+                                            </form>
+                                            <a href="" onclick="if(confirm ('Are you sure ,You want to delete')){
 
-                                            event.preventDefault();document.getElementById('delete-form-{{$projet->id}}').submit(); }
-                                            else
-                                            {
+                                                    event.preventDefault();document.getElementById('delete-form-{{$projet->id}}').submit(); }
+                                                    else
+                                                    {
 
-                                            event.preventDefault();
-                                            }
+                                                    event.preventDefault();
+                                                    }
 
-                                            "><span class="glyphicon glyphicon-trash"></span></a>
-
-
-
-                                              </td>
+                                                    "><span class="glyphicon glyphicon-trash"></span></a>
 
 
-                                    @endforeach
-                                </tr>
+
+                                        </td>
+
+
+                                        @endforeach
+                                    </tr>
 
 
                                 </tbody>
@@ -101,6 +108,9 @@
                                     <th>Etat</th>
                                     <th>service</th>
                                     <th>Client</th>
+                                    <th>addresse</th>
+                                    <th>date debut</th>
+                                    <th>date fin</th>
                                     <th>Chef d'equipe</th>
                                     <th>Validéé</th>
                                     <th>delete</th>
