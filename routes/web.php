@@ -56,6 +56,7 @@ Route::post('admin-logout', 'Admin\Auth\LoginController@logout')->name('admin.lo
     Route::get('admin/projet1', 'ProjetController@index1')->name('projet.index1');
     Route::get('admin/projet2', 'ProjetController@index2')->name('projet.index2');
     Route::get('admin/projet3', 'ProjetController@index3')->name('projet.index3');
+    Route::get('admin/projet4', 'ProjetController@index4')->name('projet.index4');
     Route::get('admin/planning', 'ProjetController@planning')->name('projet.planning');
     Route::get('admin/home', 'HomeController@index')->name('admin.home');
     Route::get('admin/changePassword','HomeController@showChangePasswordForm');

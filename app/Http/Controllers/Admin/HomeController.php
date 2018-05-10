@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $number= User::all()->count();
-        $reservations =Projet::where('etat','en attente')->count();
+        $reservations =Projet::where('etat_id','1')->count();
          $feedback=Feedback::all()->count();
         $rapports=Rapport::all()->count();
         return view ('admin.home',compact('number','reservations','feedback','rapports'));

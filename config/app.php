@@ -146,6 +146,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -160,6 +163,9 @@ return [
         App\Providers\EventServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        LaravelFCM\FCMServiceProvider::class,
+        Benwilkins\FCM\FcmNotificationServiceProvider::class,
+
 
     ],
 
@@ -210,6 +216,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+        'JWTAuth' =>Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'FCM'      => LaravelFCM\Facades\FCM::class,
+        'FCMGroup' => LaravelFCM\Facades\FCMGroup::class,
+
 
     ],
 

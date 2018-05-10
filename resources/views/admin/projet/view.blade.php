@@ -40,7 +40,6 @@
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Description</th>
-                                    <th>Etat</th>
                                     <th>service</th>
                                     <th>Client</th>
                                     <th>addresse</th>
@@ -60,11 +59,14 @@
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$projet->titre}}</td>
                                         <td>{{$projet->description}}</td>
-                                        <td>{{$projet->etat}}</td>
-                                        <td>{{$projet->services->titre}}</td>
-                                        <td>{{$projet->users->name}}</td>
+                                        <td>{{$projet->service->titre}}</td>
+                                        <td>{{$projet->client->name}}</td>
                                         <td>{{$projet->adresse}}</td>
+                                        @if($projet->start_date ==null)
+                                        <td>vide</td>
+                                    @else
                                         <td>{{$projet->start_date}}</td>
+                                        @endif
                                         <td>{{$projet->end_date}}</td>
 
                                     @if(count($projet->chefs)>0)
@@ -105,7 +107,6 @@
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Description</th>
-                                    <th>Etat</th>
                                     <th>service</th>
                                     <th>Client</th>
                                     <th>addresse</th>

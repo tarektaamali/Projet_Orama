@@ -61,16 +61,15 @@ class ArticleController extends Controller
 
 
         ]);
-        $article = new Article;
         if($request->hasFile('image')){
-            $imageName= $request->image->store('public/blogimage');
-            $file_name = $request->file('image')->hashName();
+        $imageName= $request->image->store('public/blogimage');
+        $file_name = $request->file('image')->hashName();
 
-            // save new image $file_name to database
-           // $article->update(['image' => $file_name]);
-        } else{
-                return 'No';
-            }
+        // save new image $file_name to database
+        // $article->update(['image' => $file_name]);
+    } else{
+        return 'No';
+    }
 
 
         $article = new Article;

@@ -20,11 +20,11 @@ class MaterielController extends Controller
     }
     public function index()
     {
-        $materiels=Materiel::all();
+        $materiels=Materiel::with('projects')->get();
         //        $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','non validé')->get() ;
-
+            return $materiels;
         // $arr=Array('materiel'=>$materiel);
-        return view ('admin.Materiel.view',compact('materiels'));
+      //  return view ('admin.Materiel.view',compact('materiels'));
     }
 
     /**

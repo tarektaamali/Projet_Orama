@@ -22,7 +22,7 @@
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" action="{{ route('users.store') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="box-body">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">

@@ -49,16 +49,7 @@
                                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="phone" value="{{$employe->phone}}" >
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Chef d'equipe</label>
-                                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="chef">
-                                                <option  value="{{$employe->admin_id}}" selected> {{$employe->chefs->name}}</option>
-                                                @foreach ($admins as $admin)
-                                                    <option  value="{{$admin->id}}"> {{ $admin->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </select>
-                                    </div>
+
 
                                     <!--  <div class="form-group">
                                           <label>Assign Role</label>

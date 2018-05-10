@@ -37,9 +37,9 @@
                 <ul class="treeview-menu">
                     <li ><a href="{{ route('projet.index') }}"><i class="fa fa-calendar-o"></i> Reservation en attente</a></li>
                     <li><a href="{{ route('projet.index1') }}"><i class="fa fa-calendar-plus-o"></i> Reservation En cours  </a></li>
-                    <li><a href="{{ route('projet.index1') }}"><i class="fa fa-calendar-check-o"></i> Reservation Validée  </a></li>
-                    <li><a href="{{ route('projet.index2') }}"><i class="fa  fa-hourglass-half"></i> Projet En cours  </a></li>
-                    <li><a href="{{ route('projet.index3') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
+                    <li><a href="{{ route('projet.index2') }}"><i class="fa fa-calendar-check-o"></i> Reservation Validée  </a></li>
+                    <li><a href="{{ route('projet.index3') }}"><i class="fa  fa-hourglass-half"></i> Projet En cours  </a></li>
+                    <li><a href="{{ route('projet.index4') }}"><i class="fa  fa-hourglass-end"></i> Projet terminé </a></li>
 
                 </ul>
             </li>

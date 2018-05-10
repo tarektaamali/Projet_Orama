@@ -8,9 +8,9 @@ class Materiel extends Model
 {
 
 
-    public function projets()
+    public function projects()
     {
-        return $this->belongsToMany('App\Model\Projet','projet_materiels');
+        return $this->belongsToMany('App\Model\Projet','projet_materiels')->withPivot('start_date','end_date');
     }
 
 }
