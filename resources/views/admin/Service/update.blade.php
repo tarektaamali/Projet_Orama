@@ -30,12 +30,7 @@
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">
                                         <label for="name">titre</label>
-                                        <input type="text" class="form-control" id="titre" name="titre" value="{{$service->titre}}" placeholder="titre">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="slug">description</label>
-                                        <input type="text" class="form-control" id="description" value="{{$service->description}}" name="description" placeholder="description">
+                                        <input type="text" class="form-control" id="titre" name="titre" value="{{$service->libelle}}" placeholder="titre">
                                     </div>
 
                                     <div class="form-group">

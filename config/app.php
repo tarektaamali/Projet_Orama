@@ -165,6 +165,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         LaravelFCM\FCMServiceProvider::class,
         Benwilkins\FCM\FcmNotificationServiceProvider::class,
+        \Saikat\FirebaseCloudMessaging\FCMServiceProvider::class,
 
 
     ],
@@ -220,6 +221,7 @@ return [
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'FCM'      => LaravelFCM\Facades\FCM::class,
         'FCMGroup' => LaravelFCM\Facades\FCMGroup::class,
+        'PushManager' => Saikat\FirebaseCloudMessaging\PushManager::class
 
 
     ],

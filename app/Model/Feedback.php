@@ -11,4 +11,8 @@ class Feedback extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+    public  function fournisseur()
+    {
+        return $this->belongsTo('App\User','realisateur_id');
+    }
 }

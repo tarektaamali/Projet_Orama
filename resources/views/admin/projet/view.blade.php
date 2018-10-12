@@ -18,7 +18,6 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title"></h3>
 
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -38,45 +37,43 @@
                                 <thead>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Titre</th>
+                                    <th>Objet</th>
                                     <th>Description</th>
-                                    <th>service</th>
-                                    <th>Client</th>
-                                    <th>addresse</th>
-                                    <th>date debut</th>
-                                    <th>date fin</th>
-                                    <th>Chef d'equipe</th>
-                                    <th>Valider</th>
-                                    <th>delete</th>
-
-
-
+                                    <th>Service</th>
+                                    <th>Demandeur</th>
+                                    <th>Lieu</th>
+                                    <th>Fournisseur</th>
+                                    <th>Proposition</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($projets as $projet)
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td>{{$projet->titre}}</td>
+                                        <td>{{$projet->objet}}</td>
                                         <td>{{$projet->description}}</td>
-                                        <td>{{$projet->service->titre}}</td>
-                                        <td>{{$projet->client->name}}</td>
-                                        <td>{{$projet->adresse}}</td>
-                                        @if($projet->start_date ==null)
-                                        <td>vide</td>
-                                    @else
-                                        <td>{{$projet->start_date}}</td>
-                                        @endif
-                                        <td>{{$projet->end_date}}</td>
-
-                                    @if(count($projet->chefs)>0)
-                                            <td>{{$projet->chefs->name}}</td>
+                                        <td>{{$projet->service->libelle}}</td>
+                                        <td>{{$projet->user->prenom}} {{$projet->user->nom}} <?php"\n"?>{{$projet->user->telephone}}<?php"\n"?> {{$projet->user->email}} </td>
+                                        <td>{{$projet->lieu}}</td>
+                                        @if($projet->realisateur_id ==null)
+                                            <td>vide</td>
                                         @else
-                                            <td>Nothing</td>
-                                        @endif
-
-                                        <td><a href="{{ route('projet.edit',$projet->id) }}"><span class="glyphicon glyphicon-cog"></span></a></td>
+                                            <td>{{$projet->fournisseur->societe}}<?php"\n"?>
+                                                {{$projet->fournisseur->email}}<?php"\n"?>
+                                                {{$projet->fournisseur->telephone}}</td>
+                                         @endif
+                                         @if($projet->etat_id==1)
+                                         <td>Vide</td>
+                                         @else
+                                        <td><a href="{{ route('propostion.view',$projet->id) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                             </td>
+                                             @endif 
+                                          
                                         <td>
+                                        <a href="{{ route('projet.show',$projet->id) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+
+                                            <a href="{{ route('projet.edit',$projet->id) }}"><span class="glyphicon glyphicon-cog"></span></a>
                                             <form  id="delete-form-{{$projet->id}}" method="post" action="{{route('projet.destroy',$projet->id)}}" style="display: none">
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
@@ -105,17 +102,14 @@
                                 <tfoot>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Titre</th>
+                                    <th>Objet</th>
                                     <th>Description</th>
-                                    <th>service</th>
-                                    <th>Client</th>
-                                    <th>addresse</th>
-                                    <th>date debut</th>
-                                    <th>date fin</th>
-                                    <th>Chef d'equipe</th>
-                                    <th>Validéé</th>
-                                    <th>delete</th>
-
+                                    <th>Service</th>
+                                    <th>Demandeur</th>
+                                    <th>Lieu</th>
+                                    <th>Fournisseur</th>
+                                    <th>Proposition</th>
+                                    <th>Action</th>
 
 
                                 </tr>

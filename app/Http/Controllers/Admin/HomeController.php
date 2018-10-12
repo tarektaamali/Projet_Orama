@@ -25,9 +25,13 @@ class HomeController extends Controller
     {
         $number= User::all()->count();
         $reservations =Projet::where('etat_id','1')->count();
-         $feedback=Feedback::all()->count();
+        $fournisseur=User::where('role',"fournisseur")->where('status',0)->count();
+        $fournisseur_cs=User::where('role',"fournisseur")->where('status',1)->count();
+        $demandeur=User::where('role',"demandeur")->where('status',0)->count();
+        $demandeur_cs=User::where('role',"demandeur")->where('status',1)->count();
+        $feedback=User::all()->count();
         $rapports=Rapport::all()->count();
-        return view ('admin.home',compact('number','reservations','feedback','rapports'));
+        return view ('admin.home',compact('number','reservations','feedback','rapports','fournisseur','fournisseur_cs','demandeur','demandeur_cs'));
     }
     public function showChangePasswordForm(){
         return view('admin.auth.changepassword');

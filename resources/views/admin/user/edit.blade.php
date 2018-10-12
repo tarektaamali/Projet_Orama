@@ -27,8 +27,12 @@
                             <div class="box-body">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">
-                                        <label for="name">User Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="User Name" value="@if (old('name')){{ old('name') }}@else{{ $user->name }}@endif">
+                                        <label for="name">Nom</label>
+                                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="@if (old('nom')){{ old('nom') }}@else{{ $user->nom }}@endif">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Prenom</label>
+                                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" value="@if (old('prenom')){{ old('prenom') }}@else{{ $user->prenom }}@endif">
                                     </div>
 
                                     <div class="form-group">
@@ -38,7 +42,7 @@
 
                                     <div class="form-group">
                                         <label for="phone">Phone</label>
-                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="phone" value="@if (old('phone')){{ old('phone') }}@else{{ $user->phone }}@endif">
+                                        <input type="text" class="form-control" id="telephone" name="telephone" placeholder="telephone" value="@if (old('telephone')){{ old('telephone') }}@else{{ $user->telephone }}@endif">
                                     </div>
 
                                     <div class="form-group">
@@ -47,7 +51,7 @@
                                             <label ><input type="checkbox" name="status"
                                                            @if (old('status')==1 || $user->status == 1)
                                                            checked
-                                                           @endif value="1">Status</label>
+                                                           @endif value="1">Activer</label>
                                         </div>
                                     </div>
 

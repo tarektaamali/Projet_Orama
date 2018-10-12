@@ -39,7 +39,6 @@
                                 <tr>
                                     <th>N°</th>
                                     <th>Titre</th>
-                                    <th>Description</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
@@ -49,9 +48,8 @@
                                 @foreach($services as $service)
                                 <tr>
                                     <td>{{$loop->index + 1}}</td>
-                                    <td>{{$service->titre}}
+                                    <td>{{$service->libelle}}
                                     </td>
-                                    <td>{{$service->description}}</td>
                                     <td><a href="{{ route('service.edit',$service->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                     <td>
@@ -81,7 +79,6 @@
                                 <tr>
                                     <th>N°</th>
                                     <th>Titre</th>
-                                    <th>Description</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 

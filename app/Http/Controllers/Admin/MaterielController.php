@@ -22,9 +22,9 @@ class MaterielController extends Controller
     {
         $materiels=Materiel::with('projects')->get();
         //        $reservations =Reservation::with('chefs')->with('services')->with('users')->where('etat','non validé')->get() ;
-            return $materiels;
+          //  return $materiels;
         // $arr=Array('materiel'=>$materiel);
-      //  return view ('admin.Materiel.view',compact('materiels'));
+        return view ('admin.Materiel.view',compact('materiels'));
     }
 
     /**

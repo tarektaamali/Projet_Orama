@@ -7,6 +7,7 @@ use App\Model\Equipe;
 use App\Model\Feedback;
 use App\Model\Materiel;
 use App\Model\Rapport;
+use App\Model\Region;
 use App\Model\Reservation;
 use App\Model\Service;
 use Illuminate\Notifications\Notifiable;
@@ -35,8 +36,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 
-
+    public function regions()
+    {
+        return $this->belongsToMany(Region::class);
+    }
     public  function reservations()
     {
         return $this->hasMany('App\Model\Reservation');

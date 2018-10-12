@@ -39,8 +39,8 @@
                             <div class="box-body">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">
-                                        <label for="name">titre</label>
-                                        <input type="text" readonly="" class="form-control" id="title" name="title" value="{{$projet->titre}}" placeholder="titre">
+                                        <label for="name">Objet</label>
+                                        <input type="text" readonly="" class="form-control" id="objet" name="objet" value="{{$projet->objet}}" placeholder="objet">
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">description</label>
@@ -54,7 +54,18 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
                                             </div>
-                                            <input type="text" class="form-control" readonly="" value="{{$projet->users->phone}}" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                            <input type="text" class="form-control" readonly="" value="{{$projet->user->telephone}}" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>service:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-cog"></i>
+                                            </div>
+                                            <input type="text" class="form-control" readonly="" value="{{$projet->service->libelle}}">
                                         </div>
 
                                     </div>
@@ -65,23 +76,17 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-map-marker"></i>
                                             </div>
-                                            <input type="text" class="form-control" readonly="" value="{{$projet->adresse}}" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                            <input type="text" class="form-control" readonly="" value="{{$projet->lieu}}" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                                         </div>
 
                                     </div>
-                                    <div class="form-group">
+                                 <!--   <div class="form-group">
 
                                         <label>Chef d'equipe</label>
                                         <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="equipe">
                                             <option value=""> </option>
 
-                                        @if(count($projet->chefs)>0)
-                                                <option  value="{{$projet->admin_id}}" selected> {{$projet->chefs->name}}</option>
-                                               @endif
 
-                                            @foreach ($admins as $admin)
-                                                <option value="{{$admin->id}}"> {{ $admin->name}}</option>
-                                            @endforeach
 
                                         </select>
                                     </div>
@@ -95,7 +100,7 @@
                                             <input name="date_start" type="date" class="form-control pull-right" id="datepicker">
                                         </div>
                                         <!-- /.input group -->
-                                    </div>
+                              <!--      </div>
                                     <div class="form-group">
                                         <label>Date start:</label>
 
@@ -106,19 +111,17 @@
                                             <input type="date" name="date_fin" class="form-control pull-right" id="datepicker1">
                                         </div>
                                         <!-- /.input group -->
-                                    </div>
+                       <!--             </div>
                                     <div class="form-group" style="margin-top:18px;">
                                         <label>Select materiel</label>
                                         <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="materiels[]">
-                                            @foreach ($materiels as $materiel)
-                                                <option value="{{ $materiel->id }}">{{ $materiel->libelle }}</option>
-                                            @endforeach
+                                   /
                                         </select>
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href='{{route('projet.index')}}' class="btn btn-warning">Back</a>
+                                        <button type="submit" class="btn btn-primary">Validé</button>
+                                        <a href='{{route('projet.index0')}}' class="btn btn-warning">retour</a>
                                     </div>
 
                                 </div>

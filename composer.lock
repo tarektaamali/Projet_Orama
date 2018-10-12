@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bcc2eb422350bb9ab0414c199597ec81",
+    "content-hash": "14e4f5282a29262caf5940d316179ce8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2273,6 +2273,47 @@
                 "uuid"
             ],
             "time": "2018-01-20T00:28:24+00:00"
+        },
+        {
+            "name": "saikatdutta1991/firebasecloudmessaging",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/saikatdutta1991/FirebaseCloudMessaging.git",
+                "reference": "7837f3291bff0db039c447522d33df7a8b32c6d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/saikatdutta1991/FirebaseCloudMessaging/zipball/7837f3291bff0db039c447522d33df7a8b32c6d3",
+                "reference": "7837f3291bff0db039c447522d33df7a8b32c6d3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Saikat\\FirebaseCloudMessaging\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Saikat Dutta",
+                    "email": "saikatdutta1991@gmail.com"
+                }
+            ],
+            "description": "This is to send push notification with firebase cloud messaging for Laravel. Tested in Laravel 5.2.*",
+            "keywords": [
+                "FCM",
+                "cloud messaging",
+                "composer",
+                "firebase",
+                "firebasecloudmessaging",
+                "gcm",
+                "laravel",
+                "package",
+                "push notification"
+            ],
+            "time": "2017-03-19T08:07:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

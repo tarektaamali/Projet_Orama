@@ -34,12 +34,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="slug">description</label>
-                                        <input type="text" class="form-control" id="description" name="description" placeholder="description">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">AJouter</button>
+                                        <button type="submit" class="btn btn-primary">Ajouter</button>
                                         <a href='{{route('service.index')}}' class="btn btn-warning">Back</a>
                                     </div>
 

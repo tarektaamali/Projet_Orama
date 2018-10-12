@@ -62,9 +62,9 @@
                                             <td>Nothing</td>
                                         @endif
 
-                                        <td><a href="{{ route('reservation.edit',$rapport->id) }}"><span class="glyphicon glyphicon-cog"></span></a></td>
+                                        <td><a href="{{ route('rapport.edit',$rapport->id) }}"><span class="glyphicon glyphicon-cog"></span></a></td>
                                         <td>
-                                            <form  id="delete-form-{{$rapport->id}}" method="post" action="{{route('reservation.destroy',$rapport->id)}}" style="display: none">
+                                            <form  id="delete-form-{{$rapport->id}}" method="post" action="{{route('rapport.destroy',$rapport->id)}}" style="display: none">
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
                                             </form>

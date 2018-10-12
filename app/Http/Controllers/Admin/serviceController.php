@@ -46,13 +46,11 @@ class serviceController extends Controller
         request()->validate([
 
             'titre' => 'required',
-            'description' => 'required',
-
 
         ]);
         $service = new Service;
-        $service->titre= $request->titre;
-        $service->description= $request->description;
+        $service->libelle= $request->titre;
+        //$service->description= $request->description;
         $service->save();
 
         return redirect()->route('service.index');
@@ -106,17 +104,13 @@ class serviceController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-
             'titre' => 'required',
-            'description' => 'required',
-
-
         ]);
 
    //     return $request->all();
         $service = Service::find($id);
         $service->titre= $request->titre;
-        $service->description= $request->description;
+       // $service->description= $request->description;
         $service->save();
 
 

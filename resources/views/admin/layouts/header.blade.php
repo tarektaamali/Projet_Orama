@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="{{route('admin.home')}}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>TD</b>S</span>
+        <span class="logo-mini"><b>OC</b>S</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Tunisie D </b>Service </span>
+        <span class="logo-lg"><b>OneClick </b>Services </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -18,7 +18,7 @@
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+                        <img src="{{asset('admin/dist/img/tarek.png')}}" class="user-image" alt="User Image">
                         <span class="hidden-xs">
                          {{ Auth::user()->name }}
 

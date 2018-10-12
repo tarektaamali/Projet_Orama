@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>Users</h1>
+            <h1>Demandeurs</h1>
         </section>
 
         <!-- Main content -->
@@ -15,7 +15,7 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
+                    <h3 class="box-title">Liste des demandeurs</h3>
                     @include('admin.includes.messages')
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -27,7 +27,7 @@
                 <div class="box-body">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">liste des Employée</h3>
+                            <h3 class="box-title"></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -35,9 +35,12 @@
                                 <thead>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Titre</th>
-                                    <th>Description</th>
+                                    <th>Nom complet</th>
+                                    <th>Email</th>
                                     <th>status</th>
+                                    <th>societe</th>
+                                    <th>adresse</th>
+                                    <th>tele</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
@@ -47,10 +50,17 @@
                                 @foreach($users as $user)
                                 <tr>
                                     <td>{{$loop->index + 1}}</td>
-                                    <td>{{$user->name}}
-                                    </td>
+                                    <td>{{$user->prenom}} {{$user->nom}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->status}}</td>
+                                    @if($user->status == 0)
+                                    <td>désactivier</td>
+                                    @else
+                                        <td>Activier</td>
+                                    @endif
+
+                                        <td>{{$user->societe}}</td>
+                                    <td>{{$user->adresse}}</td>
+                                    <td>{{$user->telephone}}</td>
                                     <td><a href="{{ route('users.edit',$user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
 
                                     <td>
@@ -79,9 +89,12 @@
                                 <tfoot>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Titre</th>
-                                    <th>Description</th>
-                                    <th>Status</th>
+                                    <th>Nom&Prenom</th>
+                                    <th>Email</th>
+                                    <th>status</th>
+                                    <th>societe</th>
+                                    <th>adresse</th>
+                                    <th>tele</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
 
